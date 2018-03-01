@@ -1,0 +1,9 @@
+while !isBlocked {
+    while !isOnGem {
+        moveForward()
+    }
+    if isOnGem {
+        collectGem()
+        turnLeft()
+    }
+}
