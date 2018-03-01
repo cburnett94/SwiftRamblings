@@ -1,0 +1,29 @@
+var numberOfGems = 0
+
+var numberOfSwitches = 0
+
+func gemCollect() {
+        collectGem()
+        numberOfGems = numberOfGems + 1
+}
+
+func switchToggler() {
+    toggleSwitch()
+    numberOfSwitches = numberOfSwitches + 1
+    
+}
+while numberOfGems < 3 || numberOfSwitches < 4 {
+    moveForward()
+    if isOnGem && numberOfGems < 3 {
+        gemCollect()
+    } else if isOnClosedSwitch && numberOfSwitches < 4 {
+        switchToggler()
+
+    } else if isBlocked && isBlockedLeft {
+        turnRight()
+
+    } else if isBlocked && isBlockedRight {
+        turnLeft()
+
+    }
+}
