@@ -1,0 +1,23 @@
+func flipSwitch() {
+    if isOnClosedSwitch {
+        toggleSwitch()
+    }
+}
+func getGem() {
+    if isOnGem {
+        collectGem()
+    }
+}
+
+while !isBlocked {
+    moveForward()
+    flipSwitch()
+    getGem()
+
+    if isBlocked {
+        turnRight()
+        moveForward()
+
+    }
+
+}
