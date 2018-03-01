@@ -1,0 +1,12 @@
+for i in 1 ... 8 {
+    moveForward()
+    while isOnGem {
+        collectGem()
+        turnLeft()
+        moveForward()
+        if !isOnGem {
+            turnRight()
+
+        }
+    }
+}
