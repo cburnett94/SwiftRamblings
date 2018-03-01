@@ -1,0 +1,21 @@
+func navigateAroundWall() {
+    if isBlockedRight && !isBlocked {
+        moveForward()
+
+    } else if isBlockedRight && isBlocked {
+        turnLeft()
+        moveForward()
+
+
+    } else {
+        turnRight()
+        moveForward()
+
+    }
+}
+
+while !isOnGem {
+    navigateAroundWall()
+
+}
+collectGem()
