@@ -1,0 +1,19 @@
+var gemCounter = 0
+func gemVariable() {
+    if isOnGem {
+        collectGem()
+        gemCounter = gemCounter + 1
+    }
+    
+}
+
+while isBlockedLeft && isBlockedRight {
+    gemVariable()
+
+    moveForward()
+    if isBlocked && isBlockedLeft {
+        turnRight()
+        moveForward()
+
+    }
+}
