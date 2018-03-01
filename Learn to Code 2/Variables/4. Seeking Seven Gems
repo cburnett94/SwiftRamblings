@@ -1,0 +1,18 @@
+var gemCounter = 0
+
+func canICollectGem() {
+    if isOnGem {
+        collectGem()
+        gemCounter = gemCounter + 1
+    }
+}
+
+while gemCounter < 7 {
+    moveForward()
+    canICollectGem()
+    if isBlocked {
+        turnLeft()
+        turnLeft()
+
+    }
+}
