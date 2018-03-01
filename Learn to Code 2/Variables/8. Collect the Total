@@ -1,1 +1,17 @@
+let totalGems = randomNumberOfGems
+var gemsCollected = 0
 
+
+while totalGems > gemsCollected || gemsCollected == 0 {
+    moveForward()
+    if isBlocked && isBlockedLeft {
+        turnRight()
+
+    } else if isBlocked && isBlockedRight {
+        turnLeft()
+    }
+    if isOnGem {
+        collectGem()
+        gemsCollected += 1
+    }
+}
