@@ -1,0 +1,32 @@
+var gemCounter = 0
+var switchCounter = 0
+
+func gemCollection() {
+    if isOnGem {
+        collectGem()
+        gemCounter += 1
+    }
+}
+
+func switchTogglation() {
+    if isOnClosedSwitch {
+        toggleSwitch()
+    }
+}
+
+while switchCounter < gemCounter || gemCounter == 0 {
+    gemCollection()
+    if isOnClosedSwitch {
+        toggleSwitch()
+        switchCounter += 1
+    } else if !isBlocked && isBlockedLeft && !isBlockedRight {
+        moveForward()
+    } else if !isBlocked && isBlockedLeft && isBlockedRight {
+        moveForward()
+        
+    } else if isBlocked && isBlockedLeft && !isBlockedRight {
+        turnRight()
+        moveForward()
+        
+    }
+}
