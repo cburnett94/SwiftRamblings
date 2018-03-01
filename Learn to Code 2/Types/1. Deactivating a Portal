@@ -1,1 +1,40 @@
+greenPortal.isActive = false
 
+var closedSwitches = 0
+
+while closedSwitches < 3 {
+    if closedSwitches < 1 {
+        moveForward()
+        moveForward()
+        moveForward()
+        moveForward()
+        moveForward()
+        moveForward()
+        toggleSwitch()
+        closedSwitches += 1
+    } else if closedSwitches >= 1 && closedSwitches < 2 {
+        turnLeft()
+        turnLeft()
+        moveForward()
+        moveForward()
+        moveForward()
+        turnLeft()
+        moveForward()
+        moveForward()
+        moveForward()
+        toggleSwitch()
+        closedSwitches += 1
+
+    } else if closedSwitches >= 2 && closedSwitches < 3 {
+        turnLeft()
+        turnLeft()
+        moveForward()
+        moveForward()
+        moveForward()
+        moveForward()
+        moveForward()
+        moveForward()
+        toggleSwitch()
+        closedSwitches += 1
+    }
+}
