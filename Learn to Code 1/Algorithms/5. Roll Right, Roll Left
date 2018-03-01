@@ -1,0 +1,29 @@
+while !isBlocked {
+    moveForward()
+    if isOnGem {
+        collectGem()
+        turnRight()
+        moveForward()
+        collectGem()
+    } else if isOnClosedSwitch && isBlockedLeft {
+        toggleSwitch()
+        turnRight()
+    } else if isOnClosedSwitch && isBlockedRight {
+        toggleSwitch()
+        turnLeft()
+        moveForward()
+        toggleSwitch()
+    } else if isBlocked && isBlockedRight {
+        turnLeft()
+    } else if isBlocked && isBlockedLeft {
+        turnRight()
+
+    } else if isBlocked && !isBlockedRight && !isBlockedLeft {
+        toggleSwitch()
+        turnLeft()
+
+        moveForward()
+        toggleSwitch()
+
+    }
+}
