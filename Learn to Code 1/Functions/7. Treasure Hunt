@@ -1,0 +1,34 @@
+func moveThenToggle() {
+    moveForward()
+    moveForward()
+    toggleSwitch()
+}
+func turnAround() {
+    turnLeft()
+    turnLeft()
+}
+func solveRowOne() {
+    moveThenToggle()
+    turnAround()
+    moveForward()
+    moveForward()
+    moveThenToggle()
+}
+func solveRowTwo() {
+    moveThenToggle()
+    moveThenToggle()
+    turnAround()
+    moveForward()
+    moveForward()
+    moveForward()
+    moveForward()
+
+}
+
+solveRowOne()
+turnAround()
+moveForward()
+moveForward()
+turnRight()
+solveRowTwo()
+solveRowTwo()
