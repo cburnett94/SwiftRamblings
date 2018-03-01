@@ -1,0 +1,19 @@
+func manyGems() {
+    moveForward()
+    collectGem()
+    moveForward()
+    toggleSwitch()
+}
+
+manyGems()
+moveForward()
+turnLeft()
+manyGems()
+moveForward()
+moveForward()
+
+turnLeft()
+manyGems()
+moveForward()
+turnLeft()
+manyGems()
