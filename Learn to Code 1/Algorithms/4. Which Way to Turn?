@@ -1,0 +1,22 @@
+func navigateMaze() {
+    if isBlockedRight && !isBlocked {
+        moveForward()
+
+    } else if !isBlockedRight && !isBlockedLeft && !isBlocked {
+        turnRight()
+        moveForward()
+
+    } else if isBlocked {
+        turnLeft()
+        moveForward()
+
+    }
+}
+
+while !isOnGem {
+    navigateMaze()
+    if isOnClosedSwitch {
+        toggleSwitch()
+    }
+}
+collectGem()
