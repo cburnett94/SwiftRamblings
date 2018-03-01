@@ -1,0 +1,19 @@
+func gemPattern() {
+    moveForward()
+    collectGem()
+    moveForward()
+    collectGem()
+}
+
+gemPattern()
+turnRight()
+gemPattern()
+turnRight()
+gemPattern()
+turnRight()
+gemPattern()
+turnRight()
+moveForward()
+turnRight()
+moveForward()
+collectGem()
