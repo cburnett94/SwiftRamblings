@@ -1,0 +1,42 @@
+let expert = Expert()
+
+//functions
+func navigate() {
+    expert.moveForward()
+    expert.moveForward()
+    if expert.isOnGem {
+        expert.collectGem()
+    }
+}
+
+func returnToCenter() {
+    turnAround()
+    expert.moveForward()
+    expert.moveForward()
+    expert.turnRight()
+}
+
+func turnAround() {
+    expert.turnLeft()
+    expert.turnLeft()
+}
+
+turnAround()
+expert.moveForward()
+expert.moveForward()
+expert.turnLockDown()
+
+
+for i in 1 ... 4 {
+    navigate()
+    returnToCenter()
+}
+expert.turnLeft()
+expert.moveForward()
+expert.moveForward()
+expert.moveForward()
+for i in 1 ... 4 {
+    navigate()
+    returnToCenter()
+
+}
