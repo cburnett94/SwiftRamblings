@@ -1,0 +1,49 @@
+//functions
+func expertPurpleLock() {
+    expert.turnLeft()
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+    expert.turnRight()
+    expert.moveForward()
+    expert.moveForward()
+    expert.turnLeft()
+    expert.turnLockDown()
+    expert.turnLockDown()
+}
+
+func expertReturnToCenter() {
+    expert.turnRight()
+    expert.moveForward()
+    expert.moveForward()
+    expert.turnRight()
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+    expert.turnRight()
+}
+
+func expertGreenLock() {
+    expert.turnLeft()
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+    expert.turnRight()
+    expert.moveForward()
+    expert.moveForward()
+    expert.turnLeft()
+    expert.turnLockUp()
+}
+
+//execution
+expertPurpleLock()
+expertReturnToCenter()
+expertGreenLock()
+while character.isBlocked == false {
+    character.moveForward()
+    if character.isOnGem {
+        character.collectGem()
+    } else if character.isOnClosedSwitch {
+        character.toggleSwitch()
+    }
+}
