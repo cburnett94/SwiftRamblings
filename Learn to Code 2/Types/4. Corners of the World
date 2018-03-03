@@ -1,0 +1,123 @@
+var gemCounter = 0
+var switchCounter = 0
+
+func turnAround() {
+    turnLeft()
+    turnLeft()
+}
+
+func gemGet() {
+    if isOnGem {
+        collectGem()
+        gemCounter += 1
+    }
+}
+
+func switchFlip() {
+    if isOnClosedSwitch {
+        toggleSwitch()
+        switchCounter += 1
+    }
+}
+
+func orangePortalSwitch() {
+    while switchCounter < 2 {
+        if switchCounter < 1 {
+            switchFlip()
+        } else if switchCounter == 1 {
+            turnAround()
+            moveForward()
+            turnLeft()
+            moveForward()
+            switchFlip()
+            orangePortal.isActive = true
+            turnAround()
+            moveForward()
+        }
+    }
+}
+
+func orangePortalGem() {
+    while gemCounter < 4 {
+        if gemCounter < 1 {
+            gemGet()
+            turnAround()
+            orangePortal.isActive = false
+        } else if gemCounter == 1 {
+            moveForward()
+            turnLeft()
+            moveForward()
+            gemGet()
+            turnAround()
+        } else if gemCounter == 2 {
+            moveForward()
+            moveForward()
+            gemGet()
+            turnAround()
+        } else if gemCounter == 3 {
+            moveForward()
+            turnRight()
+            moveForward()
+            gemGet()
+            greenPortal.isActive = false
+        }
+    }
+}
+
+func greenPortalGem() {
+    while gemCounter < 6 {
+        if gemCounter < 5 {
+            gemGet()
+        } else if gemCounter == 5 {
+            turnAround()
+            moveForward()
+            turnLeft()
+            moveForward()
+            gemGet()
+            greenPortal.isActive = true
+            turnAround()
+            moveForward()
+        }
+    }
+}
+
+func greenPortalSwitch() {
+    while switchCounter < 6 {
+        if switchCounter < 3 {
+            switchFlip()
+            turnAround()
+            greenPortal.isActive = false
+        } else if switchCounter == 3 {
+            moveForward()
+            turnLeft()
+            moveForward()
+            switchFlip()
+            turnAround()
+        } else if switchCounter == 4 {
+            moveForward()
+            moveForward()
+            switchFlip()
+            turnAround()
+        } else if switchCounter == 5 {
+            moveForward()
+            turnRight()
+            moveForward()
+            switchFlip()
+        }
+    }
+}
+
+turnRight()
+orangePortal.isActive = false
+moveForward()
+moveForward()
+moveForward()
+orangePortalSwitch()
+moveForward()
+orangePortalGem()
+moveForward()
+moveForward()
+moveForward()
+greenPortalGem()
+moveForward()
+greenPortalSwitch()
