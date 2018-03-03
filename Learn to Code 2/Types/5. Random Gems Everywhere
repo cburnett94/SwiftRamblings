@@ -1,1 +1,41 @@
+//constants
+let totalGems = randomNumberOfGems
 
+//variables
+var gemCounter = 0
+
+//functions
+func turnAround() {
+    turnLeft()
+    turnLeft()
+}
+
+func move() {
+    while !isBlocked {
+        moveForward()
+        if isOnGem {
+            collectGem()
+            gemCounter += 1
+        }
+    }
+}
+
+func portalsActivate() {
+    pinkPortal.isActive = true
+    bluePortal.isActive = true
+}
+
+func portalsDeactivate() {
+    pinkPortal.isActive = false
+    bluePortal.isActive = false
+}
+
+//actual execution of code
+while gemCounter != totalGems {
+    move()
+    turnAround()
+    portalsDeactivate()
+    move()
+    turnAround()
+    portalsActivate()
+}
