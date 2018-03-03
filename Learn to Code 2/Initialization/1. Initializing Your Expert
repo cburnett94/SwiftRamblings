@@ -1,0 +1,67 @@
+//variables
+var gemCounter = 0
+
+//functions
+func turnAround() {
+    expert.turnLeft()
+    expert.turnLeft()
+}
+func wayOne() {
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+    expert.turnLockUp()
+    turnAround()
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+}
+
+func wayTwo() {
+    turnAround()
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+    expert.turnLeft()
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+}
+
+func wayThree() {
+    turnAround()
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+    expert.moveForward()
+}
+
+//execution
+while gemCounter < 3 {
+    while gemCounter == 0 {
+        wayOne()
+        if expert.isOnGem {
+            expert.collectGem()
+            gemCounter += 1
+        }
+    }
+    while gemCounter == 1 {
+        wayTwo()
+        if expert.isOnGem {
+            expert.collectGem()
+            gemCounter += 1
+        }
+    }
+    while gemCounter == 2 {
+        wayThree()
+        if expert.isOnGem {
+            expert.collectGem()
+            gemCounter += 1
+        }
+    }
+}
