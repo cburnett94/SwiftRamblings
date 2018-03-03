@@ -1,0 +1,22 @@
+//not sure why this way worked, I run into a problem with the pinkPortal not changing state quickly enough when I turn around if isBlocked is true.
+
+var gemCounter = 0
+
+while gemCounter < 4 {
+    moveForward()
+    if isBlocked {
+        turnLeft()
+        turnLeft()
+    }
+    if isOnGem {
+        collectGem()
+        gemCounter += 1
+    } else if gemCounter == 1 {
+        bluePortal.isActive = false
+    } else if gemCounter == 2 {
+        bluePortal.isActive = true
+        pinkPortal.isActive = false
+    } else if gemCounter == 3 {
+        pinkPortal.isActive = false
+    }
+}
