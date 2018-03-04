@@ -1,0 +1,27 @@
+//initalization
+let expert = Expert()
+let character = Character()
+
+//variables
+var gemCount = 0
+
+//execution
+world.place(expert, facing: .north, atColumn: 3, row: 0)
+expert.toggleSwitch()
+expert.turnLockUp()
+world.place(character, facing: north, atColumn: 0, row: 0)
+while gemCount < 3 {
+    character.collectGem()
+    gemCount += 1
+    character.jump()
+    character.jump()
+}
+character.turnRight()
+for i in 1 ... 2{
+    character.jump()
+    character.jump()
+    character.collectGem()
+}
+character.turnLeft()
+character.move(distance: 2)
+character.collectGem()
