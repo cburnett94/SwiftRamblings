@@ -1,0 +1,15 @@
+let expert = Expert()
+world.place(expert, facing: .east, atColumn: 4, row: 5)
+expert.collectGem()
+expert.moveForward()
+expert.turnLock(up: true, numberOfTimes: 1)
+expert.turnRight()
+for i in 1 ... 5 {
+    expert.collectGem()
+    expert.moveForward()
+}
+world.place(expert, facing: .south, atColumn: 1, row: 8)
+for i in 1 ... 4 {
+    expert.collectGem()
+    expert.moveForward()
+}
