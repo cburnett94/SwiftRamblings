@@ -1,0 +1,50 @@
+let expert = Expert()
+let character = Character()
+
+//functions
+func upperPart() {
+    expert.turnLock(up: true, numberOfTimes: 4)
+    expert.turnRight()
+}
+
+func lowerPart() {
+    expert.turnLock(up: false, numberOfTimes: 3)
+    expert.turnRight()
+}
+
+func characterTurnAround() {
+    character.turnLeft()
+    character.turnLeft()
+}
+
+//execution
+for i in 1 ... 4 {
+    upperPart()
+}
+for i in 1 ... 2 {
+    character.move(distance: 2)
+    character.collectGem()
+    character.turnRight()
+}
+character.move(distance: 4)
+character.collectGem()
+character.turnRight()
+character.moveForward()
+for i in 1 ... 4 {
+    lowerPart()
+}
+character.turnLeft()
+character.moveForward()
+character.collectGem()
+characterTurnAround()
+for i in 1 ... 2 {
+    character.move(distance: 2)
+    character.turnRight()
+    character.move(distance: 2)
+    character.collectGem()
+    characterTurnAround()
+    character.move(distance: 2)
+    character.turnRight()
+}
+character.move(distance: 2)
+character.collectGem()
