@@ -1,0 +1,26 @@
+//initialization
+let expert = Expert()
+let expertTwoLocks = Expert()
+
+//placement
+world.place(expert, facing: .east, atColumn: 0, row: 0)
+world.place(expertTwoLocks, facing: .north, atColumn: 0, row: 4)
+
+//execution
+expert.collectGem()
+expert.move(distance: 3)
+expert.turnLeft()
+expert.turnLock(up: true, numberOfTimes: 2)
+expert.turnRight()
+expert.moveForward()
+expertTwoLocks.turnLock(up: false, numberOfTimes: 1)
+expert.move(distance: 2)
+expert.turnLock(up: false, numberOfTimes: 2)
+expertTwoLocks.turnRight()
+expertTwoLocks.collectGem()
+for i in 1 ... 7 {
+    expertTwoLocks.moveForward()
+    if expertTwoLocks.isOnGem {
+        expertTwoLocks.collectGem()
+    }
+}
