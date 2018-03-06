@@ -1,0 +1,27 @@
+let totalGems = randomNumberOfGems
+
+//initialization
+let character = Character()
+
+
+//world building
+world.place(character, facing: .south, atColumn: 7, row: 3)
+world.place(Block(), atColumn: 0, row: 2)
+world.place(Block(), atColumn: 3, row: 3)
+
+
+//variables
+var gemCount = 0
+
+//execution
+while gemCount != totalGems || gemCount == 0 {
+    if character.isOnGem {
+        character.collectGem()
+        gemCount += 1
+    } else if character.isBlocked == false {
+        character.moveForward()
+    } else {
+        character.turnLeft()
+        character.moveForward()
+    }
+}
