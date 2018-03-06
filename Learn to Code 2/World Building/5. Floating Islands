@@ -1,0 +1,57 @@
+//this was more an exercise of world building than anything else for me. I more wanted to see how things stacked and placed than anything else.
+
+//world building
+//area 1
+let character = Character()
+world.place(character, facing: .east, atColumn: 0, row: 1)
+world.place(Block(), atColumn: 1, row: 1)
+world.place(Block(), atColumn: 2, row: 2)
+world.place(Block(), atColumn: 0, row: 1)
+world.place(Block(), atColumn: 0, row: 1)
+world.place(Block(), atColumn: 0, row: 1)
+world.place(Block(), atColumn: 2, row: 3)
+world.place(Block(), atColumn: 2, row: 3)
+world.place(Portal(color: #colorLiteral(red: 0.807843148708344, green: 0.0274509806185961, blue: 0.333333343267441, alpha: 1.0)), atStartColumn: 2, startRow: 3, atEndColumn: 6, endRow: 2)
+
+//area 2
+world.place(Block(), atColumn: 6, row: 3)
+world.place(Block(), atColumn: 5, row: 4)
+world.place(Block(), atColumn: 4, row: 4)
+world.place(Block(), atColumn: 4, row: 4)
+world.place(Block(), atColumn: 4, row: 4)
+world.place(Block(), atColumn: 4, row: 4)
+world.place(Block(), atColumn: 6, row: 2)
+world.place(Block(), atColumn: 6, row: 2)
+world.place(Block(), atColumn: 6, row: 2)
+world.place(Block(), atColumn: 6, row: 2)
+world.place(Portal(color: #colorLiteral(red: 0.341176480054855, green: 0.623529434204102, blue: 0.168627455830574, alpha: 1.0)), atStartColumn: 4, startRow: 4, atEndColumn: 3, endRow: 6)
+
+//area 3
+world.place(Block(), atColumn: 1, row: 6)
+
+//functions
+func navOneTwo() {
+    character.moveForward()
+    character.toggleSwitch()
+    character.moveForward()
+    character.collectGem()
+    character.turnLeft()
+    character.moveForward()
+    character.toggleSwitch()
+    character.moveForward()
+}
+func navThree() {
+    character.moveForward()
+    character.toggleSwitch()
+    character.moveForward()
+    character.collectGem()
+    character.turnRight()
+    character.moveForward()
+    character.toggleSwitch()
+}
+
+//execution
+for i in 1 ... 2 {
+    navOneTwo()
+}
+navThree()
