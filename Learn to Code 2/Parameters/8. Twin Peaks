@@ -1,0 +1,71 @@
+let totalGems = randomNumberOfGems
+
+  // initialization
+  let character = Character()
+  let expert = Expert()
+  
+  //placements 
+  world.place(expert, facing: .north, atColumn: 1, row: 4)
+  world.place(character, facing: .south, atColumn: 5, row: 6)
+  
+  //variables
+  var gemCount = 0
+  var squareCount = 0
+  
+  //functions
+  func checkGem() {
+    if character.isOnGem {
+        character.collectGem()
+        gemCount += 1
+    }
+  }
+  
+  func tryToMove() {
+    character.jump()
+    squareCount += 1
+  }
+  
+  //execution
+  while gemCount != totalGems {
+    checkGem()
+
+    if squareCount < 7 {
+        tryToMove()
+
+    } else if squareCount == 7 {
+        character.turnRight()
+        expert.turnLockUp()
+        character.moveForward()
+        character.turnRight()
+        squareCount += 1
+
+    } else if squareCount >= 7 && squareCount < 14 {
+        tryToMove()
+
+    } else if squareCount == 14 {
+        character.turnLeft()
+        character.moveForward()
+        character.turnLeft()
+        squareCount += 1
+        
+    } else if squareCount >= 14 && squareCount < 21 {
+        tryToMove()
+
+    } else if squareCount == 21 {
+        character.turnLeft()
+        character.turnLeft()
+        squareCount += 1
+
+    } else if squareCount >= 21 && squareCount < 28 {
+        tryToMove()
+        
+    } else if squareCount == 28 {
+        character.turnRight()
+        character.moveForward()
+        character.turnRight()
+        squareCount += 1
+        
+    } else if squareCount >= 28 && squareCount < 35 {
+        tryToMove()
+    }
+  }
