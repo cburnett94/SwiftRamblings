@@ -1,0 +1,50 @@
+//My solution is pretty messy for this one. I should have used two variables instead of cheating and using the gemCount variable for two functions (keeping track of gems and when to activate or deactivate the portal).
+
+//initialization
+let greenPortal = Portal(color: #colorLiteral(red: 0.4028071761, green: 0.7315050364, blue: 0.2071235478, alpha: 1))
+
+//use the green color picker in Playgrounds when choosing the portal color which doesn't copy nicely to Github
+
+//world building
+world.place(greenPortal, atStartColumn: 1, startRow: 5, atEndColumn: 5, endRow: 1)
+
+//variables
+var gemCount = 0
+
+//functions
+func getGemNav() {
+    if isOnGem {
+        collectGem()
+        gemCount += 1
+    } else if isBlockedLeft && isBlockedRight && !isBlocked {
+        moveForward()
+
+    } else if !isBlockedLeft && !isBlockedRight && !isBlocked {
+        turnLeft()
+        moveForward()
+    } else if isBlocked && isBlockedLeft && isBlockedRight {
+        turnLeft()
+        turnLeft()
+
+    }
+
+}
+    
+//execution
+while gemCount != 9 {
+    while gemCount < 4 {
+        greenPortal.isActive = false
+        getGemNav()
+    }
+    while gemCount == 4 {
+        greenPortal.isActive = true
+        turnLeft()
+        turnLeft()
+        moveForward()
+        gemCount += 1
+    }
+    while gemCount > 4 && gemCount < 9 {
+        greenPortal.isActive = false
+        getGemNav()
+    }
+}
