@@ -1,0 +1,18 @@
+// Create an array of all coordinates in row 2.
+var row2 = world.row(2)
+
+// Create an empty array of coordinates.
+var emptyArray: [Coordinate] = []
+
+for i in 1...12 {
+    for coordinate in row2 {
+        world.place(Block(), at: coordinate)
+    }
+    // Remove a coordinate and append it to your empty array.
+    emptyArray.append(row2.remove(at: 1))
+}
+
+// Place a character for each coordinate added to your empty array.
+for coordinate in emptyArray {
+    world.place(Character(), at: coordinate)
+}
