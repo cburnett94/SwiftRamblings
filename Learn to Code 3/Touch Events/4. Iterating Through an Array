@@ -1,0 +1,6 @@
+let chosenImage = animals[index]
+    index += 1
+    // Reset index if it’s reached the end of the array.
+    if index > 5 {
+        index = 0
+    }
