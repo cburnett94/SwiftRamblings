@@ -1,0 +1,13 @@
+// Get a random image and place it.
+    let index = randomInt(from: 0, to: animals.count - 1)
+    var graphic = Graphic(image: animals[index])
+    scene.place(graphic, at: touch.position)
+    
+    let seconds = randomDouble(from: 1.0, to: 5.0)
+    // Experiment with different functions.
+    graphic.fadeOut(after: seconds)
+    if index == 3 {
+        graphic.spinAndPop(after: seconds)
+    } else if index == 5 {
+        graphic.swirlAway(after: seconds)
+    }
