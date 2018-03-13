@@ -1,0 +1,10 @@
+// Insert and remove items.
+images.insert(rugbyBall, at: 1)
+images.remove(at: 4)
+// Place images.
+for image in images {
+    var graphic = Graphic(image: image)
+    position.x += 75
+    position.y += 75
+    scene.place(graphic, at: position)
+}
