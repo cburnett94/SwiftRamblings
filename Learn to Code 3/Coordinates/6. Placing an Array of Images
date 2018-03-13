@@ -1,0 +1,18 @@
+let blu = Graphic(image: ) //insert blu image here
+let theOrigin = Point(x: 0, y: 0)
+scene.place(blu, at: theOrigin)
+
+var images = [] //insert emoji image array here
+
+// Set starting position.
+var position = Point(x: 75, y: 75)
+
+for image in images {
+    // Create a graphic with image.
+    let graphic = Graphic(image: image)
+    // Place graphic on the scene.
+    scene.place(graphic, at: position)
+    // Set position for next graphic.
+    position.x += 75
+    position.y += 75
+}
