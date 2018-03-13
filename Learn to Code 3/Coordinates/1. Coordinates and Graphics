@@ -1,0 +1,6 @@
+let theOrigin = Point(x: 0, y: 0)
+scene.place(blu, at: theOrigin)
+
+// Set the position of the star.
+let position = Point(x: 350, y: 250)
+scene.place(star, at: position)
