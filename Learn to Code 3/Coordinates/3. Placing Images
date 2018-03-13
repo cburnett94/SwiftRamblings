@@ -1,0 +1,5 @@
+// Place a graphic in each quadrant.
+scene.place(ghost, at: Point(x: 250, y: 250))
+scene.place(alien, at: Point(x: 300, y: -100))
+scene.place(ogre, at: Point(x: -175, y: 50))
+scene.place(monster, at: Point(x: -100, y: -350))
