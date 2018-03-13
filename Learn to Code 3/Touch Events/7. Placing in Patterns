@@ -1,0 +1,14 @@
+// Get a random image and place it.
+    let index = randomInt(from: 0, to: animals.count - 1)
+    var graphic = Graphic(image: animals[index])
+    graphic.scale = 0.5
+    scene.place(graphic, at: touch.position)
+    // Get position from points at pointIndex.
+    let position = points[pointIndex]
+    // Increment pointIndex.
+    pointIndex += 1
+    if pointIndex > 5 {
+        pointIndex = 0
+    }
+    // Move graphic to position.
+    graphic.move(to: position, duration: 1.0)
