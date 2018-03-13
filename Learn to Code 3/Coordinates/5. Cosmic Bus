@@ -1,0 +1,21 @@
+let graphic1 = Graphic(text: quote2)
+graphic1.fontName = .chalkduster
+graphic1.fontSize = 60
+graphic1.textColor = //insert color here
+graphic1.rotation = 10
+scene.place(graphic1, at: Point(x: -150, y: 50))
+
+// Put more quotes on the bus.
+let graphic2 = Graphic(text: quote5)
+graphic2.fontName = .zapfino
+graphic2.fontSize = 40
+graphic2.textColor = //insert color here
+graphic2.rotation = -20
+scene.place(graphic2, at: Point(x: 150, y: 100))
+
+let graphic3 = Graphic(text: quote7)
+graphic3.fontName = .markerfelt
+graphic3.fontSize = 30
+graphic3.textColor = //insert color here
+graphic3.rotation = -20
+scene.place(graphic3, at: Point(x: 75, y: -110))
