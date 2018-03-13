@@ -1,0 +1,12 @@
+for image in images {
+    var graphic = Graphic(image: image)
+    scene.place(graphic, at: theOrigin)
+    
+    // Get random values for orbit parameters.
+    let x = randomDouble(from: 50, to: 400)
+    let y = randomDouble(from: 50, to: 400)
+    let period = randomDouble(from: 1.0, to: 10.0)
+    
+    // Put graphic into orbit.
+    graphic.orbit(x: x, y: y, period: period)
+}
