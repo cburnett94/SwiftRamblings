@@ -1,0 +1,7 @@
+// Set index to a random value.
+    let index = randomInt(from: 0, to: animals.count - 1)
+    var graphic = Graphic(image: animals[index])
+    scene.place(graphic, at: touch.position)
+    // Scale or rotate graphic (or do both).
+    graphic.scale = randomDouble(from: 1.0, to: 2.5)
+    graphic.rotation = randomDouble(from: 0.0, to: 360.0)
