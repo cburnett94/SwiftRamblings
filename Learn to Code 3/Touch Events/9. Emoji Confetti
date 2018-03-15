@@ -1,0 +1,18 @@
+let emoji = "✨🌝🔦💫👀☄️🌎"
+// Split emoji into an array of single-character strings.
+let emo = emoji.componentsByCharacter()
+
+var chosenEmoji = emo[index]
+    // Set chosenEmoji to item index of characters array.
+    
+    // Create graphic from the chosen emoji.
+    let graphic = Graphic(text: chosenEmoji)
+    // Increment index to point to next item.
+    index += 1
+    // Reset index if it’s reached the end of the array.
+    if index == emo.count {
+        index = 0
+    }
+    // Set `scale` and `rotation`.
+    graphic.scale = 3.0
+    graphic.rotation = randomDouble(from: 0.0, to: 360)
