@@ -1,0 +1,10 @@
+// Get index to a random item in things.
+    let index = randomInt(from: 0, to: things.count - 1)
+    // Create graphic with a string from the things array at index.
+    let graphic = Graphic(text: things[index])
+    // Change the font name and size.
+    graphic.fontName = .chalkduster
+    graphic.fontSize = 30
+    // Set to color from the colors array at index.
+    let index2 = randomInt(from: 0, to: colors.count - 1)
+    graphic.textColor = colors[index]
