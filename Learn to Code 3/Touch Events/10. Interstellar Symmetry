@@ -1,0 +1,21 @@
+// Graphics for each quadrant.
+    var graphics: [Graphic] = []
+    // Pick a random image.
+    let chosenImage = animals.randomItem
+    // Create graphics and add to array.
+    for i in 0 ..< 4 {
+        let graphic = Graphic(image: chosenImage)
+        graphics.append(graphic)
+    }
+    // Get absolute x, y values.
+    let x = abs(touch.position.x)
+    let y = abs(touch.position.y)
+    // Position a graphic in each quadrant.
+    let position1 = Point(x: x, y: y)
+    scene.place(graphics[0], at: position1)
+    let position2 = Point(x: x, y: -y)
+    scene.place(graphics[1], at: position2)
+    let position3 = Point(x: -x, y: -y)
+    scene.place(graphics[2], at: position3)
+    let position4 = Point(x: -x, y: y)
+    scene.place(graphics[3], at: position4)
