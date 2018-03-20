@@ -1,0 +1,38 @@
+func addFruit(touch: Touch) {
+    if touch.previousPlaceDistance < 60 { return }
+    let fruit = "🍏🍐🍊🍋🍉🍒🍓🍌".componentsByCharacter()
+    let graphic = Graphic(text: fruit.randomItem)
+    scene.place(graphic, at: touch.position)
+    graphic.scale = randomDouble(from: 0.5, to: 2.0)
+}
+
+func addSwirlingAlien(touch: Touch) {
+    if touch.previousPlaceDistance < 60 { return }
+    let graphic = Graphic(image: #imageLiteral(resourceName: "alien@2x.png"))
+    scene.place(graphic, at: touch.position)
+    graphic.swirlAway(after: 2.5)
+}
+
+func addGreeting(touch: Touch) {
+    if touch.previousPlaceDistance < 60 { return }
+    let greetings = ["howdy", "hello", "hi", "g’day"]
+    let greeting = greetings.randomItem
+    let graphic = Graphic(text: greeting)
+    graphic.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+    graphic.fontName = .chalkduster
+    scene.place(graphic, at: touch.position)
+    graphic.rotation = randomDouble(from: -30.0, to: 30.0)
+}
+
+// Create and add Fruit tool.
+let fruitTool = Tool(name: "Fruit", emojiIcon: "🍉")
+fruitTool.onFingerMoved = addFruit(touch:)
+scene.tools.append(fruitTool)
+// Create and add Alien tool.
+let alienTool = Tool(name: "Alien", emojiIcon: "👽")
+alienTool.onFingerMoved = addSwirlingAlien(touch:)
+scene.tools.append(alienTool)
+// Create and add Greeting tool.
+let greetingTool = Tool(name: "Greeting", emojiIcon: "✨")
+greetingTool.onFingerMoved = addGreeting(touch:)
+scene.tools.append(greetingTool)
