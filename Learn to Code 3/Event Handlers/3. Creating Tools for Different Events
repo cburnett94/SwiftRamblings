@@ -1,0 +1,23 @@
+// A “finger moved” event handler.
+func addAlien(touch: Touch) {
+    if touch.previousPlaceDistance < 60 { return }
+    let graphic = Graphic(image: #imageLiteral(resourceName: "alien@2x.png"))
+    scene.place(graphic, at: touch.position)
+}
+
+// A “graphic touched” event handler.
+func fattenAlien(graphic: Graphic) {
+    graphic.scale *= 1.5
+}
+
+// Create Tool A.
+let toolB = Tool(name: "Tool B", emojiIcon: "🅱️")
+// Swap event handler.
+toolB.onFingerMoved = addAlien(touch:)
+scene.tools.append(toolB)
+
+// Create Tool B.
+let toolA = Tool(name: "Tool A", emojiIcon: "🅰️")
+// Swap event handler.
+toolA.onGraphicTouched = fattenAlien(graphic:)
+scene.tools.append(toolA)
