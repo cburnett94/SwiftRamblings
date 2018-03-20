@@ -1,0 +1,34 @@
+// “Graphic touched” event handler.
+func modifyGraphic(graphic: Graphic) {
+    // Modify alpha.
+    if graphic.alpha == 1.0 {
+        graphic.alpha = 0.5
+    } else {
+        graphic.alpha = 1.0
+    }
+    
+    // Modify scale.
+    if graphic.scale < 2.0 {
+        graphic.scale = 2.5
+    } else {
+        graphic.scale = 1.5
+    }
+}
+// “Finger moved” event handler.
+func addFruit(touch: Touch) {
+    if touch.previousPlaceDistance < 60 { return }
+    let fruit = "🍏🍐🍊🍋🍉🍒🍓🍌".componentsByCharacter()
+    let graphic = Graphic(text: fruit.randomItem)
+    scene.place(graphic, at: touch.position)
+    graphic.scale = 2.5
+}
+
+// Create and add Fruit tool.
+let fruitTool = Tool(name: "Fruit", emojiIcon: "🍒")
+fruitTool.onFingerMoved = addFruit(touch:)
+scene.tools.append(fruitTool)
+
+// Create and add Modify tool.
+let modifyTool = Tool(name: "Modify", emojiIcon: "⚒")
+modifyTool.onGraphicTouched = modifyGraphic(graphic:)
+scene.tools.append(modifyTool)
