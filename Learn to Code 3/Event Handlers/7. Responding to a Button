@@ -1,0 +1,4 @@
+// Iterate over graphics and squish each one.
+    for graphic in graphics {
+        graphic.moveAndZap(to:blackHole.position)
+    }
