@@ -1,0 +1,43 @@
+let blackHole = Graphic(image: //insert image here)
+let x = randomDouble(from: -400, to: 400)
+let y = randomDouble(from: -400, to: 400)
+let blackHolePosition = Point(x: x, y: y)
+scene.place(blackHole, at: blackHolePosition)
+
+// Squish tool event handler.
+func squishGraphic(graphic: Graphic) {
+    // Add code here.
+    if graphic.scale >= 1.0 {
+        graphic.scale = 0.5
+    }
+    if graphic.alpha >= 1.0 {
+        graphic.alpha = 0.75
+    }
+    if graphic.scale < 0.6 {
+        graphic.moveAndZap(to: blackHole.position)
+    }
+}
+
+// UFF tool event handler.
+func addFructoid(touch: Touch) {
+    if touch.previousPlaceDistance < 60 { return }
+    let fruit = "🍏🍐🍊🍋🍉🍒🍓🍌".componentsByCharacter()
+    let graphic = Graphic(text: fruit.randomItem)
+    scene.place(graphic, at: touch.position)
+    graphic.scale = 2.0
+    
+    let x = randomDouble(from: 50, to: 400)
+    let y = randomDouble(from: 50, to: 400)
+    let period = randomDouble(from: 8.0, to: 15.0)
+    graphic.orbit(x: x, y: y, period: period)
+}
+
+// Create and add UFF tool.
+let fructoidTool = Tool(name: "UFF", emojiIcon: "🍋")
+fructoidTool.onFingerMoved = addFructoid(touch:)
+scene.tools.append(fructoidTool)
+
+// Create and add Squish tool.
+let squishTool = Tool(name: "Squish", emojiIcon: "💥")
+squishTool.onGraphicTouched = squishGraphic(graphic:)
+scene.tools.append(squishTool)
