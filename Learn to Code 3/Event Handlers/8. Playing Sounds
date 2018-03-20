@@ -1,0 +1,49 @@
+let blu = Graphic(image: #imageLiteral(resourceName: "Blu1@2x.png"))
+let theOrigin = Point(x: 0, y: 0)
+scene.place(blu, at: theOrigin)
+
+// Event handler for Sound tool.
+func soundGraphic(graphic: Graphic) {
+    
+    // Play a sound for Blu.
+    if graphic == blu {
+        playSound(.bluDance, volume: 50)
+    }
+    if graphic.text == "🍐" {
+        playSound(.phone, volume: 50)
+    }
+    if graphic.text == "🍊" {
+        playSound(.walrus, volume: 50)
+    }
+    if graphic.text == "🍋" {
+        playSound(.hat, volume: 50)
+    }
+    if graphic.text == "🍑" {
+        playSound(.data, volume: 50)
+    }
+    if graphic.text == "🍒" {
+        playSound(.phone, volume: 50)
+    }
+    
+    // Play a different sound for each type of fruit.
+    
+}
+
+// Event handler for Fruit tool.
+func addFruit(touch: Touch) {
+    if touch.previousPlaceDistance < 60 { return }
+    let fruit = "🍐🍊🍋🍑🍒".componentsByCharacter()
+    let graphic = Graphic(text: fruit.randomItem)
+    scene.place(graphic, at: touch.position)
+    graphic.scale = 2.0
+}
+
+// Create and add Fruit tool.
+let fruitTool = Tool(name: "Fruit", emojiIcon: "🍊")
+fruitTool.onFingerMoved = addFruit(touch:)
+scene.tools.append(fruitTool)
+
+// Create and add Sound tool.
+let soundTool = Tool(name: "Sound", emojiIcon: "📣")
+soundTool.onGraphicTouched = soundGraphic(graphic:)
+scene.tools.append(soundTool)
